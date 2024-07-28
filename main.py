@@ -48,7 +48,7 @@ def search_reviews(df, product_description, n=3, pprint=True):
 
 def main():    
     # 会話機能の実行
-    talk()
+    #talk()
 
     # データの読み込み
     datafile_path = "data/fine_food_reviews_with_embeddings_1k.csv"
