@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 import textwrap as tr
 from typing import List, Optional
 
@@ -12,8 +14,12 @@ from openai import OpenAI
 import numpy as np
 import pandas as pd
 
-client = OpenAI(max_retries=5)
-
+load_dotenv()
+OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
+client = OpenAI(
+    api_key = os.environ.get("OPENAI_API_KEY"),
+    max_retries=5
+)
 
 def get_embedding(text: str, model="text-embedding-3-small", **kwargs) -> List[float]:
     # replace newlines, which can negatively affect performance.
